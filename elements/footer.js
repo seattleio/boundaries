@@ -1,7 +1,7 @@
-var el = require('yo-yo')
+var html = require('choo/html')
 var css = require('sheetify')
 
-module.exports = function footer (state, send) {  
+module.exports = function footer (state, prev, send) {  
   var prefix = css`
     :host {
       width: 0 auto;
@@ -15,22 +15,20 @@ module.exports = function footer (state, send) {
     }
 
     ul {
-    list-style: none;
-    // margin:0;
-    // padding:0;
+      list-style: none;
     }
+
     ul > li {
         display: inline-block;
         width: 100%;
     }
+
     ul > li > ul >li {
         color: black;
         font-size: 0.8em;
     }
 
     div {
-        // width: 80%;
-        // border: 1px solid black;
         -webkit-column-count:3;
         -moz-column-count:3;
         -ms-column-count:3;
@@ -45,7 +43,7 @@ module.exports = function footer (state, send) {
     }
   `
 
-  return el`<footer class="${prefix}">
+  return html`<footer class="${prefix}">
     <div>
     <ul>
         <li>

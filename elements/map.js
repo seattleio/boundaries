@@ -1,44 +1,49 @@
-var el = require('yo-yo')
+var html = require('choo/html')
 var css = require('sheetify')
+var inline = require('dom-css')
+var L = require('mapbox.js')
+L.mapbox.accessToken = 'pk.eyJ1Ijoic2V0aHZpbmNlbnQiLCJhIjoiSXZZXzZnUSJ9.Nr_zKa-4Ztcmc1Ypl0k5nw'
 
-module.exports = function createMap (state, send) {
+module.exports = function createMapView (options) {
+  var initialState = options.initialState
+  console.log('createMapView', options)
   var prefix = css`
     :host {
-      width: 100%;
-      min-height: 500px;
+      height: calc(100% - 50px);
+      overflow: hidden;
+      float: left;
+    }
+
+    #map {
+      height: 100%;
     }
   `
-  var mapEl;
-  var map;
-  function init() {
-    mapEl = el`<div id="map" class="${prefix}"></div>`
-    map = state.mapLayer.mapbox.map(mapEl, 'mapbox.streets')
-    state.marker = state.mapLayer.marker([state.lat, state.long])
-    state.marker.addTo(map);
 
-    window.addEventListener('load', function () {
-      map.setView([state.lat, state.long], 11, { reset: true })
-      if (state.matchingBoundaries) {
-        state.mapLayer.geoJson(state.matchingBoundaries).addTo(state.map)
-      }
-    });
-    state.map = map;
+  function onload (node) {
+    map.invalidateSize()
   }
 
-  if (state.map === undefined) {
-    init();
-  } else {
-    if (state.selectedBoundary) {
-      state.mapLayer.geoJson(state.selectedBoundary).addTo(state.map)
-    } else if (state.matchingBoundaries) {
-      console.log('we have matching boundaries')
-      state.mapLayer.geoJson(state.matchingBoundaries).addTo(state.map)
+  var el = html`<div id="map"></div>`  
+  var map = window.lmap = L.mapbox.map(el, initialState.tiles, initialState)
+  var featureLayer = L.mapbox.featureLayer().addTo(map)
+
+  return function mapView (state, prev, send) {
+    var wrapper = html`<div class="map-wrapper ${prefix}" onload=${onload}>${el}</div>`
+
+    if (state.boundaries.match) {
+      inline(wrapper, { width: '60%' })
+      inline(el, { width: '100%' })
+    } else {
+      inline(wrapper, { width: '100%' })
     }
-    mapEl = document.getElementById('map');
-    console.log("update map")
-    state.marker.setLatLng([state.lat, state.long])
-    state.map.setView([state.lat, state.long])
-  }
 
-  return mapEl
+    map.setZoom(state.map.zoom)
+    map.panTo(state.map.center)
+
+    if (state.boundaries.match) {
+      featureLayer.setGeoJSON(state.boundaries.match)
+    }
+
+    return wrapper
+  }
 }

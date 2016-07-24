@@ -1,130 +1,88 @@
-body {
+html, body {
   font-family: "Source Sans Pro", Helvetica, sans-serif;
   margin: 0px;
-}
-._26468d63 {
-      width: 0 auto;
-      padding: 0 10px;
-      background-color: #f2f2f0;
-      margin-top: 10px;
-      height: 100px;
-      bottom: 0;
-      border-top: 2px solid #e2e2e0;
-      text-align: center;
-    }
-
-    ._26468d63 ul {
-    list-style: none;
-    // margin:0;
-    // padding:0;
-    }
-    ._26468d63 ul > li {
-        display: inline-block;
-        width: 100%;
-    }
-    ._26468d63 ul > li > ul >li {
-        color: black;
-        font-size: 0.8em;
-    }
-
-    ._26468d63 div {
-        // width: 80%;
-        // border: 1px solid black;
-        -webkit-column-count:3;
-        -moz-column-count:3;
-        -ms-column-count:3;
-        -o-column-count:3;
-        column-count:3;
-        -webkit-column-gap:5px;
-        -moz-column-gap:5px;
-        -ms-column-gap:5px;
-        -o-column-gap:5px;
-        column-gap:5px;
-        columns:3;
-    }._505b33ec {
+  height: 100%;
+}._422dbf5e {
       width: 100%;
-      background-color: #f2f2f0;
-      padding: 10px 0px;
+      background-color: #535351;
       height: 50px;
-      top: 0;
-      border-bottom: 1px solid #e2e2e0;
     }
 
-    ._505b33ec h1 {
-      font-size: 20px;
+    ._422dbf5e h1 {
+      font-size: 18px;
       line-height: 1;
-      margin: 15px 0px 0px 0px;
+      margin: 0px 0px 0px 0px;
       display: inline-block;
+      font-weight: 500;
     }
 
-    ._505b33ec h1 a {
+    ._422dbf5e h1 a {
       text-decoration: none;
-      color: #444;
-    }._7b4f2972 {
-      width: 100%;
-      min-height: 500px;
-    }._1a3cfdf3 input[type=search] {
-      text-align: center;
-      width: 100%;
-      cursor: auto;
-      text-shadow: none;
-      font-size: 20px;
-      padding: 5px;
-      border: 0px;
-    }._c86e8af3 {
-      // background-color: #ffffff;
-      margin: 0 auto;
-      text-align: center;
-  }
+      color: #f3f3f1;
+    }
 
-  ._c86e8af3 h1 {
-    font-size: 12px;
-  }
+    ._422dbf5e .app-org-title {
+      display: block;
+      float: left;
+      padding: 0px 10px;
+      height: 50px;
+      line-height: 50px;
+      background-color: rgb(243, 73, 83);
+      color: #eee;
+    }
 
-  ._c86e8af3 img {
-    width: 10%;
-    margin:-5px 0;
-    padding:0;
-  }
+    ._422dbf5e .app-project-title {
+      display: block;
+      float: left;
+      padding: 0px 10px;
+      height: 50px;
+      line-height: 50px;
+      text-transform: uppercase;
+      font-size: 14px;
+      letter-spacing: 1px;
+    }._ac41fe1f {
+      width: 40%;
+      height: calc(100% - 50px);
+      float: right;
+      overflow-y: auto;
+      border-left: 1px solid #ccc;
+      background-color: #f3f3f1;
+      position: absolute;
+      top: 50px;
+      right: 0;
+      box-sizing: border-box;
+      padding: 20px 50px;
+    }._03072890 {
+      height: calc(100% - 50px);
+      overflow: hidden;
+      float: left;
+    }
 
-  ._c86e8af3 hr {
-    margin:0;
-    border:0;
-    height: 15px;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-  }._96ebc31d {
-      // background-color: #ffffff;
-      margin: 0 auto;
+    ._03072890 #map {
+      height: 100%;
+    }._385d7b27 {
+      height: 100%;
+    }._68b5a2e7 {
+      height: 100%;
+    }
+
+    ._68b5a2e7 .landing-search {
+      width: 500px;
+      height: 300px;
+      background-color: #fff;
+      box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.5);
+      position: fixed;
+      top: calc(50% - 150px);
+      left: calc(50% - 250px);
+      padding: 30px 50px;
+      box-sizing: border-box;
+    }
+
+    ._68b5a2e7 .landing-search-title {
       text-align: center;
-  }
-  ._96ebc31d div.stackedMapHeader {
-    width: 100%;
-  }
-  ._96ebc31d div.stackedMapSearch {
-    width: 80%;
-    margin: 10px auto;
-  }
-  ._96ebc31d div.stackMapContainer {
-    width: 80%;
-    margin: 0 auto;
-    position: relative;
-    min-height: 500px;
-    // border: 1px solid gray;
-  }
-  ._96ebc31d div.stackedMapStacks {
-    position: absolute;
-    bottom: 0;
-    width: 24%;
-    float: right;
-    // border:1px solid gray;
-  }
-  ._96ebc31d div.stackedMapMap {
-    width: 100%;
-    float: left;
-    // border: 1px solid gray;
-    min-height: 500px;
-  }
-  ._96ebc31d div.stackedMapFooter {
-    width: 100%;
-  }
+      font-weight: 500;
+    }
+
+    ._68b5a2e7 .landing-search-description {
+      font-size: 90%;
+    }

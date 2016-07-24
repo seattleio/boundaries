@@ -1,7 +1,7 @@
 var config = {
   development: {
-    url: 'http://127.0.0.1',
-    port: 3434
+    url: 'http://boundaries.seattle.io',
+    port: 80
   },
   production: {
     url: 'http://boundaries.seattle.io',
