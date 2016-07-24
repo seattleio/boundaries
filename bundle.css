@@ -36,6 +36,18 @@
       text-transform: uppercase;
       font-size: 14px;
       letter-spacing: 1px;
+    }._6d258e72 {
+      border: 1px solid transparent;
+      background-color: transparent;
+      color: #fff;
+      float: right;
+      height: 30px;
+      margin: 10px 0px;
+      cursor: pointer;
+    }
+
+    ._6d258e72:hover {
+      border: 1px solid #fff;
     }._ac41fe1f {
       width: 40%;
       height: calc(100% - 50px);

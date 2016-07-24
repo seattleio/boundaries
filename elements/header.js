@@ -48,6 +48,34 @@ module.exports = function header (state, prev, send) {
     <h1>
       <a href="${state.app.orgLink}" class="app-org-title">${state.app.org}</a>
       <a href="/" class="app-project-title">${state.app.project}</a>
+      ${reset(state, prev, send)}
     </h1>
   </header>`
+}
+
+function reset (state, prev, send) {
+  var prefix = css`
+    :host {
+      border: 1px solid transparent;
+      background-color: transparent;
+      color: #fff;
+      float: right;
+      height: 30px;
+      margin: 10px 0px;
+      cursor: pointer;
+    }
+
+    :host:hover {
+      border: 1px solid #fff;
+    }
+  `
+
+  function onclick (e) {
+    console.log('reset')
+    send('boundaries:reset')
+  }
+
+  return state.boundaries.match
+    ? html`<button class="${prefix}" onclick=${onclick}>New search</button>`
+    : ''
 }
