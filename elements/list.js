@@ -29,11 +29,7 @@ module.exports = function (state, prev, send) {
   return html`<div class="${prefix} list-wrapper">
     <h1>${state.boundaries.address}</h1>
     <p>${state.boundaries.lat}, ${state.boundaries.long}</p>
-
     ${narrative(state, send)}
-
-    <h2>All matching boundaries:</h2>
-    ${features.map(eachFeature)}
   </div>`
 }
 

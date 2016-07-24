@@ -6,7 +6,7 @@ var api = require('../api-client')(config)
 module.exports = {
   namespace: 'boundaries',
   state: {
-    address: '',
+    address: 'gas works park',
     boundaries: null,
     match: null,
     lat: null,
