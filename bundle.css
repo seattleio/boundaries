@@ -1,8 +1,4 @@
-html, body {
-  font-family: "Source Sans Pro", Helvetica, sans-serif;
-  margin: 0px;
-  height: 100%;
-}._422dbf5e {
+._422dbf5e {
       width: 100%;
       background-color: #535351;
       height: 50px;
@@ -52,7 +48,7 @@ html, body {
       right: 0;
       box-sizing: border-box;
       padding: 20px 50px;
-    }._03072890 {
+    }._a5fff6fd {}._03072890 {
       height: calc(100% - 50px);
       overflow: hidden;
       float: left;
@@ -60,7 +56,11 @@ html, body {
 
     ._03072890 #map {
       height: 100%;
-    }._385d7b27 {
+    }html, body {
+  font-family: "Source Sans Pro", Helvetica, sans-serif;
+  margin: 0px;
+  height: 100%;
+}._385d7b27 {
       height: 100%;
     }._68b5a2e7 {
       height: 100%;

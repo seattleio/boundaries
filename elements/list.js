@@ -1,6 +1,8 @@
 var html = require('choo/html')
 var css = require('sheetify')
 
+var narrative = require('./location-narrative')
+
 module.exports = function (state, prev, send) {
   var features = state.boundaries.match.features
 
@@ -27,7 +29,10 @@ module.exports = function (state, prev, send) {
   return html`<div class="${prefix} list-wrapper">
     <h1>${state.boundaries.address}</h1>
     <p>${state.boundaries.lat}, ${state.boundaries.long}</p>
-    <h2>Matching boundaries:</h2>
+
+    ${narrative(state, send)}
+
+    <h2>All matching boundaries:</h2>
     ${features.map(eachFeature)}
   </div>`
 }
