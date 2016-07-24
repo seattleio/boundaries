@@ -1,5 +1,5 @@
 {
-  "name": "boundaries.seattle.io",
+  "name": "boundaries",
   "version": "2.0.0",
   "description": "",
   "main": "index.js",
@@ -8,22 +8,21 @@
   },
   "scripts": {
     "test": "tape tests/*.js | tap-spec",
-    "bundle": "browserify browser.js -t sheetify/transform -p [ css-extract -o bundle.css ] > bundle.js",
-    "start": "budo browser.js:bundle.js -P -- -t sheetify/transform -p [ css-extract -o bundle.css ]"
+    "bundle": "browserify index.js -t sheetify/transform -p [ css-extract -o bundle.css ] > bundle.js",
+    "start": "budo index.js:bundle.js -P -- -t sheetify/transform -p [ css-extract -o bundle.css ]"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/seattleio/boundaries.seattle.io.git"
+    "url": "git+https://github.com/seattleio/boundaries.git"
   },
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/seattleio/boundaries.seattle.io/issues"
+    "url": "https://github.com/seattleio/boundaries/issues"
   },
-  "homepage": "https://github.com/seattleio/boundaries.seattle.io#readme",
+  "homepage": "https://github.com/seattleio/boundaries#readme",
   "dependencies": {
     "choo": "^3.1.2",
-    "choo-log": "^1.4.0",
     "dom-css": "^2.0.1",
     "insert-css": "^0.2.0",
     "mapbox": "^1.0.0-beta",
