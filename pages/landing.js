@@ -1,9 +1,6 @@
 var html = require('choo/html')
 var css = require('sheetify')
 
-var config = require('../config')
-var api = require('../api-client')(config)
-
 var header = require('../elements/header')
 var map = require('../elements/map')({
   initialState: require('../models/map').state
@@ -45,23 +42,7 @@ module.exports = function (state, prev, send) {
 
   function onclick (e) {
     if (address) {
-      var geocoder = L.mapbox.geocoder('mapbox.places')
-      geocoder.query(address, function (err, data) {
-        if (err || !data.latlng) {
-          console.log('location not found')
-        } else {
-          var latitude = data.latlng[0];
-          var longitude = data.latlng[1];
-          api.boundaries({ lat: latitude, long: longitude }, function (err, res, body) {
-            send('boundaries:setMatch', {
-              address: address,
-              lat: latitude,
-              long: longitude,
-              match: JSON.parse(body)
-            })
-          })
-        }
-      })
+      send('boundaries:match', address)
     }
   }
 

@@ -1,5 +1,8 @@
 var assert = require('assert')
 
+var config = require('../config')
+var api = require('../api-client')(config)
+
 module.exports = {
   namespace: 'boundaries',
   state: {
@@ -19,8 +22,24 @@ module.exports = {
     }
   },
   effects: {
-    match: function (data, state, send, done) {
-      send('boundaries:setMatch', data, done)
+    match: function (address, state, send, done) {
+      var geocoder = L.mapbox.geocoder('mapbox.places')
+      geocoder.query(address, function (err, data) {
+        if (err || !data.latlng) {
+          console.log('location not found')
+        } else {
+          var latitude = data.latlng[0];
+          var longitude = data.latlng[1];
+          api.boundaries({ lat: latitude, long: longitude }, function (err, res, body) {
+            send('boundaries:setMatch', {
+              address: address,
+              lat: latitude,
+              long: longitude,
+              match: JSON.parse(body)
+            }, done)
+          })
+        }
+      })
     }
   }
 }
