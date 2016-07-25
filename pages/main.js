@@ -46,6 +46,12 @@ module.exports = function (state, prev, send) {
     }
   }
 
+  function onkeypress (e) {
+    if (address && e.keyCode === 13) {
+      send('boundaries:match', address)
+    }
+  }
+
   if (state.boundaries.match) {
     return html`<div class="${prefix}">
       ${header(state, prev, send)}
@@ -65,8 +71,9 @@ module.exports = function (state, prev, send) {
           autofocus="true"
           placeholder="Address"
           value="${state.boundaries.address || ''}"
-          oninput=${oninput}>
-        </input>
+          oninput=${oninput}
+          onkeypress=${onkeypress}
+        >
         </label>
         <button onclick=${onclick}>Find boundaries</button>
       </div>

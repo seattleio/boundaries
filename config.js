@@ -1,11 +1,9 @@
 var config = {
   development: {
-    url: 'http://boundaries-api.seattle.io',
-    port: 80
+    host: 'https://boundaries-api.seattle.io'
   },
   production: {
-    url: 'http://boundaries-api.seattle.io',
-    port: process.env.PORT
+    host: 'https://boundaries-api.seattle.io'
   }
 }
 
