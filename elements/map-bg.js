@@ -6,7 +6,7 @@ L.mapbox.accessToken = 'pk.eyJ1Ijoic2V0aHZpbmNlbnQiLCJhIjoiSXZZXzZnUSJ9.Nr_zKa-4
 
 module.exports = function createMapView (options) {
   var initialState = options.initialState
-  console.log('createMapView', options)
+
   var prefix = css`
     :host {
       height: calc(100% - 50px);
@@ -28,9 +28,12 @@ module.exports = function createMapView (options) {
   var featureLayer = L.mapbox.featureLayer().addTo(map)
 
   return function mapView (state, prev, send) {
+    // state.features
+    // state.map.zoom
+    // state.map.center
     var wrapper = html`<div class="map-wrapper ${prefix}" onload=${onload}>${el}</div>`
 
-    if (state.boundaries.match) {
+    if (state.features) {
       inline(wrapper, { width: '60%' })
       inline(el, { width: '100%' })
     } else {
@@ -40,8 +43,8 @@ module.exports = function createMapView (options) {
     map.setZoom(state.map.zoom)
     map.panTo(state.map.center)
 
-    if (state.boundaries.match) {
-      featureLayer.setGeoJSON(state.boundaries.match)
+    if (state.features) {
+      featureLayer.setGeoJSON(state.features)
     }
 
     return wrapper

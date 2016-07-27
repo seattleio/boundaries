@@ -16,8 +16,7 @@ app.model(require('./models/map'))
 
 app.router(function (route) {
   return [
-    route('/', require('./pages/landing')),
-    route('/boundaries', require('./pages/boundaries'))
+    route('/', require('./pages/main'))
   ]
 })
 
