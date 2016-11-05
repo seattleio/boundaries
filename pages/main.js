@@ -5,6 +5,7 @@ var header = require('../elements/header')
 var list = require('../elements/list')
 
 var mapModel = require('../models/map')()
+console.log(mapModel)
 var map = require('../elements/map-bg')({
   initialState: mapModel.state
 })

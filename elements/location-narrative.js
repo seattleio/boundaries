@@ -3,7 +3,8 @@ var css = require('sheetify')
 var xtend = require('xtend')
 
 var boundaryMap = require('./map-boundary')
-var initialState = require('../models/map').state
+var mapModel = require('../models/map')()
+var initialState = mapModel.state
 
 module.exports = function (state, send) {
   var prefix = css`
