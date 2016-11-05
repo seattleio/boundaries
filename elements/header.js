@@ -42,40 +42,33 @@ module.exports = function header (state, prev, send) {
       font-size: 14px;
       letter-spacing: 1px;
     }
+
+    nav a {
+      line-height: 50px;
+    }
   `
 
-  return html`<header class="${prefix}">
+  return html`<header class="site-header ${prefix}">
     <h1>
-      <a href="${state.app.orgLink}" class="app-org-title">${state.app.org}</a>
-      <a href="/" class="app-project-title">${state.app.project}</a>
+      <a href="${state.orgLink}" class="app-org-title">${state.org}</a>
+      <a href="/" class="app-project-title">${state.project}</a>
       ${reset(state, prev, send)}
     </h1>
+    <nav class="dt fr mw8">
+      <div class="dtc v-mid tr">
+        <a class="f6 fw4 hover-white no-underline white dn dib-ns ph3 hvr-border-white" href="/about">About</a>
+        <a class="f6 fw4 hover-white no-underline white dn dib-ns ph3 hvr-border-white" href="/api">Developer API</a>
+      </div>
+    </nav>
   </header>`
 }
 
 function reset (state, prev, send) {
-  var prefix = css`
-    :host {
-      border: 1px solid transparent;
-      background-color: transparent;
-      color: #fff;
-      float: right;
-      height: 30px;
-      margin: 10px 0px;
-      cursor: pointer;
-    }
-
-    :host:hover {
-      border: 1px solid #fff;
-    }
-  `
-
   function onclick (e) {
-    console.log('reset')
     send('boundaries:reset')
   }
 
-  return state.boundaries.match
-    ? html`<button class="${prefix}" onclick=${onclick}>New search</button>`
+  return (state.boundaries.match || state.showSearch)
+    ? html`<button class="ml3" onclick=${onclick}>New search</button>`
     : ''
 }

@@ -22,6 +22,7 @@ module.exports = function (state, send) {
 
   var data = {}
   var count = features.length
+
   features.forEach(function (item) {
     var props = item.properties
     data[props.dataset] = props
