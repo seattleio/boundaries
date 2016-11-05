@@ -34,7 +34,9 @@ module.exports = function (state, prev, send) {
       <h3>Data</h3>
       <p>This project uses <a href="https://github.com/openseattle/seattle-boundaries">seattle-boundaries</a>, a collection of GeoJSON boundaries for the city of Seattle.
 
-      
+      <h2>Contact</h2>
+      <p>If you'd like to get involved, feel free to join the [Open Seattle slack group](http://openseattle.org/slack/), join the #seattleio channel, and introduce yourself.</p>
+      <p>Looking to build similar projects and need design/development consultants? Send an email to sethvincent@gmail.com</p>
     </div>
   </div>`
 }
