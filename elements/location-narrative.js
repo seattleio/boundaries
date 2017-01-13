@@ -70,9 +70,10 @@ module.exports = function (state, send) {
     append(html`<p>This location is not inside any school districts.`)
   }
   if (data['sps-es']) {
+  	console.log(data['sps-es'])
     append(html`<div class="list-item">
       <h3>Elementary school</h3>
-      <p>${data['sps-es']['ES_ZONE']}</p>
+      <p><a href="http://www.seattleschools.org/directory/elementary_schools/${data['sps-es']['ES_ZONE'].replace(/\./g,'').replace(/\s+/g,'_').replace('Wing_Luke','luke').replace('MLK_Jr','king').replace('Thurgood_Marshall','marshall').replace('John_Muir','muir').replace('John_Rogers','rogers')}/">${data['sps-es']['ES_ZONE']}</></p>
       ${createMap('sps-es', mapstate)}
     </div>`)
   }
