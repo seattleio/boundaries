@@ -40,10 +40,11 @@ module.exports = function (state, send) {
     return map(xtend(mapstate, { dataset: dataset, geojson: data[dataset].feature }))
   }
 
+  // giving just the general link for this one because there doesn't seem to be a readily automatable way to link to the district's representative, as opposed to a district map that lacks the information most users will probably want}
   if (data['city-council-districts']) {
     append(html`<div class="list-item">
       <h2>City council district</h2>
-      <p>This location is in <b>city council district ${data['city-council-districts'].district}</b>.</p>
+      <p>This location is in <b><a href="http://www.seattle.gov/cityclerk/municipal-code-and-city-charter/council-districts">city council district</a> ${data['city-council-districts'].district}</b>.</p>
       ${createMap('city-council-districts', mapstate)}
     </div>`)
   }
