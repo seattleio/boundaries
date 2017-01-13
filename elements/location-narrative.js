@@ -116,7 +116,7 @@ module.exports = function (state, send) {
   if (data['wa-legislature']) {
     append(html`<div class="list-item">
       <h2>Washington legislature</h2>
-      <p>${data['wa-legislature']['NAMELSAD10']}</p>
+      <p><a href="http://app.leg.wa.gov/districtfinder/displaydistrict/${data['wa-legislature']['NAMELSAD10'].replace(/[^0-9\.]/g, '')}">${data['wa-legislature']['NAMELSAD10']}</a></p>
       ${createMap('wa-legislature', mapstate)}
     </div>`)
   }
