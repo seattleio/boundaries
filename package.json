@@ -7,7 +7,7 @@
     "request": "xhr"
   },
   "scripts": {
-    "deploy": "npm run bundle && staticland deploy -p . -d boundaries.seattle.io",
+    "deploy": "npm run bundle && staticland . boundaries.seattle.io",
     "test": "tape tests/*.js | tap-spec",
     "bundle": "browserify index.js -t sheetify/transform -p [ css-extract -o bundle.css ] > bundle.js",
     "start": "budo index.js:bundle.js -P -- -t sheetify/transform -p [ css-extract -o bundle.css ]"
