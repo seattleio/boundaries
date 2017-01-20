@@ -7,7 +7,8 @@ module.exports = function () {
       tiles: 'mapbox.streets',
       setView: true,
       center: [47.606,-122.332],
-      zoom: 11
+      zoom: 11,
+      scrollWheelZoom: false
     },
     reducers: {
       center: function (state, data) {
